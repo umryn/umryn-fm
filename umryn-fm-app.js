@@ -11,14 +11,17 @@
         
         var defaultVolume = .5;
         var getTrackInterval = 10000;
-        var started = false;
+        var historyLength = 20;
         var soundCloudClientId = '9ee333b2c2772349b9126ae06c1f3280';
         var soundCloudUserId = '11749564';
+        
+        var started = false;
         
         $scope.currentTrack;
         $scope.currentPlayer;
         $scope.volume = defaultVolume*100;
         $scope.tracks = [];
+        $scope.history = [];
         $scope.nowPlaying = '';
         
         $scope.setVolume = function() {
@@ -49,6 +52,18 @@
             return false;
         }
         
+        function canPlayTrack(track) {
+            return $scope.history.indexOf(track) == -1;
+        }
+        
+        function addTrackToHistory(track) {
+            $scope.history.unshift(track);
+            
+            if ($scope.history.length > historyLength) {
+                $scope.history = $scope.history.slice(0, historyLength);
+            }
+        }
+        
         function getRandomTrack() {
             var min = 0;
             var max = $scope.tracks.length;
@@ -58,6 +73,9 @@
         
         function playTrack(trackObject) {
             $scope.currentTrack = trackObject;
+            $scope.nowPlaying = ': ' + trackObject.user.username + ' - ' + trackObject.title;
+            
+            addTrackToHistory(trackObject);
             
             SC.stream('/tracks/' + trackObject.id).then(function(player){
                 playerSetup(player);
@@ -67,8 +85,14 @@
         
         function playRandomTrack() {
             console.log('play random track');
+            
             var randomTrack = getRandomTrack();
-            console.log(randomTrack);
+            
+            if (!canPlayTrack(randomTrack)) {
+                console.log('track is in history');
+                playRandomTrack();
+            }
+            
             playTrack(randomTrack);
         }
         
