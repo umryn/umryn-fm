@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: #151515;
   color: #f1f1f1;
@@ -6,14 +12,15 @@ body {
 
 a {
   color: #f1f1f1;
+  text-decoration: none;
 }
 
 main {
   position: absolute;
-  left: 20px;
-  top: 20px;
-  right: 20px;
-  bottom: 20px;
+  left: 40px;
+  top: 40px;
+  right: 40px;
+  bottom: 40px;
   z-index: 1;
 }
 
@@ -47,6 +54,26 @@ ul, ol {
   transform: scale(1.1);
 }
 
+#details {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 560px;
+}
+
+#title {
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+#user {
+  color: #c0c0c0;
+  font-size: 1.4em;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
 #controls {
   margin-bottom: 20px;
 }
@@ -55,7 +82,7 @@ ul, ol {
   background: transparent;
   border: 0;
   color: #e0e0e0;
-  font-size: 2em;
+  font-size: 3em;
 }
 
 #controls button:hover {
@@ -72,12 +99,17 @@ ul, ol {
 }
 
 #history {
-  padding: 20px;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 40px;
+  right: 40px;
   min-width: 500px;
   z-index: 2;
+}
+
+#history h1 {
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-align: right;
 }
 
 #history ol {
@@ -89,7 +121,7 @@ ul, ol {
 #history li {
   background: rgba(0, 0, 0, .3);
   margin: 0;
-  padding: 15px;
+  padding: 20px;
 }
 
 .montserrat {

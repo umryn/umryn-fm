@@ -10,6 +10,11 @@
 <body>
 
 <main>
+  <div id="details">
+    <div id="title"><a href="{{ currentTrack.permalink_url }}">{{ currentTrack.title }}</a></div>
+    <div id="user"><a href="{{ currentTrack.user.permalink_url }}">{{ currentTrack.user.username }}</a></div>
+  </div>
+
   <div id="controls">
     <ul>
       <li><button ng-click="togglePlay()"><i ng-class="{'icon-play': !isPlaying(), 'icon-pause': isPlaying()}"></i></button></li>
@@ -18,9 +23,8 @@
     </ul>
   </div>
 
-<div>Title: {{ currentTrack.title }}</div>
-<div>Artist/User: {{ currentTrack.user.username }}</div>
 <div>Volume: {{ volume }}</div>
+
 <div>
 <select ng-model="volume" ng-change="setVolume()">
 <option value="0">0</option>
