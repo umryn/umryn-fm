@@ -2,10 +2,9 @@
 <html ng-app="umrynFmApp" ng-controller="umrynFmCtrl" lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="fonts/opensans/opensans.css">
-  <link rel="stylesheet" href="fonts/montserrat/montserrat.css">
   <link rel="stylesheet" href="fonts/fontello-entypo/css/fontello-entypo-v1.css">
   <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
   <title>UmrynFM {{ nowPlaying }}</title>
 </head>
 <body>
@@ -54,7 +53,7 @@
   <div id="background-image" ng-style="{'background-image': 'url(' + (currentTrack.artwork_url | artworkHuge) + ')'}"></div>
 </div>
 
-<script src="lib/angular.min-1.6.0.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
 <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
 <script src="umryn-fm-app.js"></script>
 
