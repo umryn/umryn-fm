@@ -43,6 +43,10 @@
             }
         };
         
+        $scope.isPlaying = function() {
+            return $scope.currentPlayer._isPlaying;
+        }
+        
         function getQueryVariable(subject, variable) {
             var vars = subject.split('&');
             for (var i = 0; i < vars.length; i++) {
