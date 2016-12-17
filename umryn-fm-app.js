@@ -61,8 +61,6 @@
             
             SC.stream('/tracks/' + trackObject.id).then(function(player){
                 playerSetup(player);
-                
-                player.setVolume(defaultVolume);
                 player.play();
             });
         }
