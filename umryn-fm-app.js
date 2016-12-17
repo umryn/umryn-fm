@@ -30,6 +30,14 @@
             playRandomTrack();
         };
         
+        $scope.togglePlay = function() {
+            if ($scope.currentPlayer._isPlaying) {
+                $scope.currentPlayer.pause();
+            } else {
+                $scope.currentPlayer.play();
+            }
+        };
+        
         function getQueryVariable(subject, variable) {
             var vars = subject.split('&');
             for (var i = 0; i < vars.length; i++) {
