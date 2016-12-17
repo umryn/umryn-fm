@@ -35,6 +35,9 @@
     <div>Title: {{ track.title }}</div>
     <div>Artist/User: {{ track.user.username }}</div>
   </div>
+  <ol>
+    <li ng-repeat="track in history">{{ track.title }} - {{ track.user.username }}</li>
+  </ol>
 </div>
 
 <script src="lib/angular.min-1.6.0.js"></script>
