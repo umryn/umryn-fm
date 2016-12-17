@@ -2,17 +2,25 @@
 <html ng-app="umrynFmApp" ng-controller="umrynFmCtrl" lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="fonts/opensans/opensans.css">
+  <link rel="stylesheet" href="fonts/montserrat/montserrat.css">
+  <link rel="stylesheet" href="fonts/fontello-entypo/css/fontello-entypo-v1.css">
+  <link rel="stylesheet" href="styles/main.css">
   <title>UmrynFM {{ nowPlaying }}</title>
 </head>
 <body>
 
+<main>
+  <div id="controls">
+    <ul>
+      <li><button ng-click="togglePlay()"><i ng-class="{'icon-play': !isPlaying(), 'icon-pause': isPlaying()}"></i></button></li>
+      <li><button ng-click="nextTrack()"><i class="icon-to-end"></i></button></li>
+    </ul>
+  </div>
 
 <div>Title: {{ currentTrack.title }}</div>
 <div>Artist/User: {{ currentTrack.user.username }}</div>
 <div>Volume: {{ volume }}</div>
-<div><button ng-click="togglePlay()">Pause/Play</button></div>
-<div><button ng-click="nextTrack()">Next</button></div>
-
 <div>
 <select ng-model="volume" ng-change="setVolume()">
 <option value="0">0</option>
@@ -28,12 +36,22 @@
 <option value="100">100</option>
 </select>
 </div>
+</main>
 
-<div>
-  <h2>History</h2>
+<div id="history">
+  <h1 class="small-caps montserrat">History</h1>
   <ol>
-    <li ng-repeat="track in history">{{ track.title }} - {{ track.user.username }}</li>
+    <li ng-repeat="track in history">
+        <img ng-src="{{ track.artwork_url | artworkSmall }}" src="" alt="">
+        <a href="{{ track.permalink_url }}">{{ track.title }}</a>
+        - 
+        <a href="{{ track.user.permalink_url }}">{{ track.user.username }}</a>
+    </li>
   </ol>
+</div>
+
+<div id="background">
+  <div id="background-image" ng-style="{'background-image': 'url(' + (currentTrack.artwork_url | artworkHuge) + ')'}"></div>
 </div>
 
 <script src="lib/angular.min-1.6.0.js"></script>
