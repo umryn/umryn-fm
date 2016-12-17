@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
-  <link href="vendor/fontello-entypo/css/fontello-entypo-v1.css" rel="stylesheet">
+  <link href="vendor/fontello-entypo/css/fontello-entypo-v2.css" rel="stylesheet">
   <link href="styles/main.css" rel="stylesheet">
   <title>UmrynFM {{ nowPlaying }}</title>
 </head>
@@ -14,6 +14,7 @@
     <ul>
       <li><button ng-click="togglePlay()"><i ng-class="{'icon-play': !isPlaying(), 'icon-pause': isPlaying()}"></i></button></li>
       <li><button ng-click="nextTrack()"><i class="icon-to-end"></i></button></li>
+      <li><button ng-click="toggleLoop()" ng-class="{'enabled': loop}"><i class="icon-arrows-ccw"></i></button></li>
     </ul>
   </div>
 

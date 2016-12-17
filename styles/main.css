@@ -63,6 +63,10 @@ ul, ol {
   cursor: pointer;
 }
 
+#controls button.enabled {
+  color: #f50;
+}
+
 #controls li {
   display: inline-block;
 }

@@ -25,6 +25,7 @@
         $scope.tracks = [];
         $scope.history = [];
         $scope.nowPlaying = '';
+        $scope.loop = false;
         
         $scope.setVolume = function() {
             setVolume();
@@ -42,6 +43,10 @@
                 $scope.currentPlayer.play();
             }
         };
+        
+        $scope.toggleLoop = function() {
+            $scope.loop = !$scope.loop;
+        }
         
         $scope.isPlaying = function() {
             return $scope.currentPlayer._isPlaying;
@@ -115,7 +120,13 @@
             setVolume();
             
             playerObject.on('finish', function() {
-                playRandomTrack();
+                if ($scope.loop) {
+                    playerObject.pause();
+                    playerObject.seek(0);
+                    playerObject.play();
+                } else {
+                    playRandomTrack();
+                }
             });
         }
         
