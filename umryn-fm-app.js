@@ -3,6 +3,8 @@
 
     var app = angular
         .module('umrynFmApp', [])
+        .filter('artworkSmall', artworkSmall)
+        .filter('artworkHuge', artworkHuge)
         .controller('umrynFmCtrl', umrynFmCtrl);
     
     umrynFmCtrl.$inject = ['$scope'];
@@ -152,6 +154,18 @@
         SC.initialize({client_id: soundCloudClientId});
         
         getTracks();
+    }
+    
+    function artworkSmall() {
+        return function(x) {
+            return x.replace('large', 'small');
+        };
+    }
+    
+    function artworkHuge() {
+        return function(x) {
+            return x.replace('large', 't500x500');
+        }
     }
 
 })();
