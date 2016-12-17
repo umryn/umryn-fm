@@ -25,7 +25,7 @@
         $scope.nowPlaying = '';
         
         $scope.setVolume = function() {
-            $scope.currentPlayer.setVolume($scope.volume/100)
+            setVolume();
         };
         
         $scope.nextTrack = function() {
@@ -50,6 +50,13 @@
                 }
             }
             return false;
+        }
+        
+        function setVolume() {
+            var currentVolume = $scope.volume;
+            var base = 5;
+            var curvedValue = (Math.pow(base, currentVolume / 100) - 1) / (base - 1);
+            $scope.currentPlayer.setVolume(curvedValue)
         }
         
         function canPlayTrack(track) {
@@ -98,7 +105,9 @@
         
         function playerSetup(playerObject) {
             $scope.currentPlayer = playerObject;
-            playerObject.setVolume($scope.volume/100);
+            
+            setVolume();
+            
             playerObject.on('finish', function() {
                 playRandomTrack();
             });
