@@ -101,27 +101,46 @@ ul, ol {
   position: absolute;
   top: 40px;
   right: 40px;
+  max-width: 700px;
   min-width: 500px;
   z-index: 2;
 }
 
 #history h1 {
   letter-spacing: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: right;
 }
 
-#history ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.history-item {
+  background: rgba(0, 0, 0, .3);
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
 }
 
-#history li {
-  background: rgba(0, 0, 0, .3);
-  margin: 0;
-  padding: 20px;
-  vertical-align: middle;
+.history-artwork {
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  vertical-align: bottom;
+}
+
+.history-item-title {
+    margin-left: 42px;
+}
+
+.history-item-user {
+    margin-left: 42px;
+}
+
+.history-item-title,
+.history-item-user {
+    font-size: .8em;
+    font-weight: 300;
+    letter-spacing: 2px;
 }
 
 .montserrat {
@@ -131,12 +150,6 @@ ul, ol {
 .small-caps {
   font-variant: small-caps;
   text-transform: lowercase;
-}
-
-.artwork {
-  margin-right: 10px;
-  height: 32px;
-  width: 32px;
 }
 
 /* Angular Slider overrides */

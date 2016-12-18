@@ -31,14 +31,15 @@
 
 <div id="history">
   <h1 class="small-caps montserrat">History</h1>
-  <ol>
-    <li ng-repeat="track in history">
-        <img class="artwork" ng-src="{{ track.artwork_url | artworkSmall }}" src="" alt="">
-        <a href="{{ track.permalink_url }}">{{ track.title }}</a>
-        - 
-        <a href="{{ track.user.permalink_url }}">{{ track.user.username }}</a>
-    </li>
-  </ol>
+  <div class="history-item" ng-repeat="track in history">
+    <img class="history-artwork" ng-src="{{ track.artwork_url | artworkSmall }}" src="" alt="">
+    <div class="history-item-title">
+      <a href="{{ track.permalink_url }}">{{ track.title }}</a>
+    </div>
+    <div class="history-item-user">
+      <a href="{{ track.user.permalink_url }}">{{ track.user.username }}</a>
+    </div>
+  </div>
 </div>
 
 <div id="background">
