@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
   <link href="vendor/fontello-entypo/css/fontello-entypo-v2.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/5.9.0/rzslider.min.css" rel="stylesheet">
   <link href="styles/main.css" rel="stylesheet">
   <title>UmrynFM {{ nowPlaying }}</title>
 </head>
@@ -23,23 +24,9 @@
     </ul>
   </div>
 
-<div>Volume: {{ volume }}</div>
-
-<div>
-<select ng-model="volume" ng-change="setVolume()">
-<option value="0">0</option>
-<option value="10">10</option>
-<option value="20">20</option>
-<option value="30">30</option>
-<option value="40">40</option>
-<option value="50" selected="selected">50</option>
-<option value="60">60</option>
-<option value="70">70</option>
-<option value="80">80</option>
-<option value="90">90</option>
-<option value="100">100</option>
-</select>
-</div>
+  <div style="max-width: 500px">
+    <rzslider rz-slider-model="volume" rz-slider-options="{floor: 0, ceil: 100, hideLimitLabels: true}"></rzslider>
+  </div>
 </main>
 
 <div id="history">
@@ -59,6 +46,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/5.9.0/rzslider.min.js"></script>
 <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
 <script src="app/umryn-fm-app.js"></script>
 

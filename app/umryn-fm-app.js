@@ -2,7 +2,7 @@
     'use strict';
 
     var app = angular
-        .module('umrynFmApp', [])
+        .module('umrynFmApp', ['rzModule'])
         .filter('artworkSmall', artworkSmall)
         .filter('artworkHuge', artworkHuge)
         .controller('umrynFmCtrl', umrynFmCtrl);
@@ -51,6 +51,10 @@
         $scope.isPlaying = function() {
             return $scope.currentPlayer._isPlaying;
         }
+        
+        $scope.$watch('volume', function() {
+            $scope.setVolume();
+        });
         
         function getQueryVariable(subject, variable) {
             var vars = subject.split('&');
