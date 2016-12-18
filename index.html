@@ -33,7 +33,7 @@
   <h1 class="small-caps montserrat">History</h1>
   <ol>
     <li ng-repeat="track in history">
-        <img ng-src="{{ track.artwork_url | artworkSmall }}" src="" alt="">
+        <img class="artwork" ng-src="{{ track.artwork_url | artworkSmall }}" src="" alt="">
         <a href="{{ track.permalink_url }}">{{ track.title }}</a>
         - 
         <a href="{{ track.user.permalink_url }}">{{ track.user.username }}</a>

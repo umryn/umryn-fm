@@ -19,7 +19,7 @@ main {
   position: absolute;
   left: 40px;
   top: 40px;
-  right: 40px;
+  right: 560px;
   bottom: 40px;
   z-index: 1;
 }
@@ -50,14 +50,12 @@ ul, ol {
   position: absolute;
   top: 0;
   left: 0;
-  filter: blur(10px) brightness(.3) saturate(.5);
+  filter: blur(15px) brightness(.25) saturate(.4);
   transform: scale(1.1);
 }
 
 #details {
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 560px;
+  margin-bottom: 40px;
 }
 
 #title {
@@ -75,7 +73,8 @@ ul, ol {
 }
 
 #controls {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  margin-left: -20px;
 }
 
 #controls button {
@@ -107,8 +106,8 @@ ul, ol {
 }
 
 #history h1 {
-  letter-spacing: 2px;
-  margin-bottom: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
   text-align: right;
 }
 
@@ -122,6 +121,7 @@ ul, ol {
   background: rgba(0, 0, 0, .3);
   margin: 0;
   padding: 20px;
+  vertical-align: middle;
 }
 
 .montserrat {
@@ -131,6 +131,12 @@ ul, ol {
 .small-caps {
   font-variant: small-caps;
   text-transform: lowercase;
+}
+
+.artwork {
+  margin-right: 10px;
+  height: 32px;
+  width: 32px;
 }
 
 /* Angular Slider overrides */
